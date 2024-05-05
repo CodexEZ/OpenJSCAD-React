@@ -1,7 +1,7 @@
 .form_container{
     width: 100px;
-    top: 10%;
-    left: 180%;
+    top: 100%;
+    left: 1%;
     position: absolute;
 }
 label{
