@@ -2,6 +2,7 @@
 import './App.css';
 import Modify from './components/Modify'
 import {cube,cuboid,sphere } from '@jscad/modeling/src/primitives'
+import {vectorText} from '@jscad/modeling/src/text'
 import {useState, useEffect} from 'react';
 import {rotateX,rotateY, rotateZ} from '@jscad/modeling/src/operations/transforms/rotate'
 import {scaleX,scaleY,scaleZ} from '@jscad/modeling/src/operations/transforms/scale'
@@ -58,7 +59,7 @@ function Env() {
   const addSphere = () => {
     const newSphere = sphere({
       center:[0,0,0],
-      radius:20,
+      radius:10,
       segments:50
     })
     setSolids(prevSolids => [...prevSolids, newSphere]);
@@ -73,29 +74,45 @@ function Env() {
     setSolids(prevSolids => [...prevSolids,newCuboid])
   }
 
+  //Not working yet
+  const AddText = () => {
+    const newText = vectorText('OpenJSCAD')
+    setSolids(prevSolids=>[...prevSolids,newText])
+  }
 
   //Scale the selected object in X,Y and Z axes
   const ScaleX = (x) =>{
+    if(x<=0)
+      console.log("Scale factor must be greater than 0")
+    else{
     const originalShape = solids[index];
     const modifiedShape = scaleX(x,originalShape)
     const updatedSolids = [...solids]
     updatedSolids[index] = modifiedShape
     setSolids(updatedSolids);
   }
+  }
   const ScaleY =(y)=>{
+    if(y<=0)
+      console.log("Scale factor must be greater than 0")
+    else{
     const originalShape = solids[index]
     const modifiedShape = scaleY(y,originalShape)
     const updatedSolids = [...solids]
     updatedSolids[index] = modifiedShape
     setSolids(updatedSolids);
-
+    }
   }
   const ScaleZ = (z)=>{
+    if(z<=0)
+    console.log("Scale factor must be greater than 0")
+    else{
     const originalShape = solids[index]
     const modifiedShape = scaleZ(z,originalShape)
     const updatedSolids = [...solids]
     updatedSolids[index] = modifiedShape
     setSolids(updatedSolids);
+    }
   }
 
   //Rotate the selected object in X,Y and Z axes
@@ -210,6 +227,7 @@ function Env() {
           <button onClick={addCube}>Add Cube</button>
           <button onClick={addSphere}>Add Sphere</button>
           <button onClick={addCuboid}>Add Cuboid</button>
+          {/* <button onClick={AddText}>Add Text</button> */}
           <button onClick={clear}>Clear all</button>
           <Modify  x = {ScaleX} y = {ScaleY} z={ScaleZ} rx={RotateX} ry = {RotateY} rz = {RotateZ} tx = {TranslateX} ty={TranslateY} tz = {TranslateZ}/>
           <Shapes shapes = {solids} operation={selectIndex}/>

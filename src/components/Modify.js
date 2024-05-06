@@ -50,21 +50,36 @@ function Modify({x,y,z,rx,ry,rz, tx,ty,tz}){
       setTranslateZ(e.target.value)
       tz(TDirection(translateZ,e))
     }
+    //For some reason, this is not working
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      // Here you can handle the form submission, for example, sending the data to the server
+      x(scaleX)
+      y(scaleY)
+      z(scaleZ)
+      rx(rotateX)
+      ry(rotateY)
+      rz(rotateZ)
+      tx(translateX)
+      ty(parseInt(translateY))
+      tz(parseFloat(translateZ))
+    };
+  
 
   return (
     <div className='form_container'>
-      <form >
+      <form onSubmit={handleSubmit}>
         <label>
           ScaleX:
-          <input type="number" value={scaleX} min = "0" step="0.1" onChange={(e) => handleScaleX(e)} />
+          <input type="number" value={scaleX} min = "0" step="0.1" onChange={handleScaleX} />
         </label>
         <label>
           ScaleY:
-          <input type="number" value={scaleY} min = "0" step="0.1" onChange={(e) => handleScaleY(e)} />
+          <input type="number" value={scaleY} min = "0" step="0.1" onChange={handleScaleY} />
         </label>
         <label>
           ScaleZ:
-          <input type="number" value={scaleZ} min = "0" step="0.1" onChange={(e) => handleScaleZ(e)} />
+          <input type="number" value={scaleZ} min = "0" step="0.1" onChange={handleScaleZ} />
         </label>
         <label>
           RotateX:
@@ -74,7 +89,8 @@ function Modify({x,y,z,rx,ry,rz, tx,ty,tz}){
            step="0.1" 
            onChange={(e) => handleRotateX(e)}
            onKeyDown={(e) => e.preventDefault()}
-           onKeyUp={(e) => e.preventDefault()}/>
+           onKeyUp={(e) => e.preventDefault()}
+           />
         </label>
         <label>
           RotateY:
@@ -84,7 +100,8 @@ function Modify({x,y,z,rx,ry,rz, tx,ty,tz}){
           step="0.1" 
           onChange={(e) => handleRotateY(e)}
           onKeyDown={(e) => e.preventDefault()}
-          onKeyUp={(e) => e.preventDefault()} />
+          onKeyUp={(e) => e.preventDefault()}
+           />
         </label>
         <label>
           RotateZ:
@@ -92,7 +109,8 @@ function Modify({x,y,z,rx,ry,rz, tx,ty,tz}){
           value={rotateZ} step="0.1"
           onChange={(e) => handleRotateZ(e)}
           onKeyDown={(e) => e.preventDefault()}
-          onKeyUp={(e) => e.preventDefault()} />
+          onKeyUp={(e) => e.preventDefault()}
+           />
         </label>
         <label>
           TranslateX:
@@ -118,7 +136,10 @@ function Modify({x,y,z,rx,ry,rz, tx,ty,tz}){
           value={translateZ}
           onChange={(e)=>handleTranslateZ(e)}/>
         </label>
+        {/* <button type="submit">Submit</button> */}
       </form>
+      <h4>Click on the input box to display the tiny arrows</h4>
+      <h4>Click or drag them to make changes</h4>
     </div>
   );
 }
