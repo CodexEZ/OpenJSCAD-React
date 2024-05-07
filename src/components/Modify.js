@@ -51,24 +51,26 @@ function Modify({x,y,z,rx,ry,rz, tx,ty,tz}){
       tz(TDirection(translateZ,e))
     }
     //For some reason, this is not working
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      // Here you can handle the form submission, for example, sending the data to the server
-      x(scaleX)
-      y(scaleY)
-      z(scaleZ)
-      rx(rotateX)
-      ry(rotateY)
-      rz(rotateZ)
-      tx(translateX)
-      ty(parseInt(translateY))
-      tz(parseFloat(translateZ))
-    };
+    // const handleSubmit = (e) => {
+    //   e.preventDefault();
+    //   // Here you can handle the form submission, for example, sending the data to the server
+    //   x(scaleX)
+    //   y(scaleY)
+    //   z(scaleZ)
+    //   rx(rotateX)
+    //   ry(rotateY)
+    //   rz(rotateZ)
+    //   tx(translateX)
+    //   ty(parseInt(translateY))
+    //   tz(parseFloat(translateZ))
+    // };
   
 
   return (
     <div className='form_container'>
-      <form onSubmit={handleSubmit}>
+      <form
+       //onSubmit={handleSubmit}
+       >
         <label>
           ScaleX:
           <input type="number" value={scaleX} min = "0" step="0.1" onChange={handleScaleX} />
