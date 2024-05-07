@@ -1,6 +1,6 @@
 
 import './App.css';
-import Modify from './components/Modify'
+import Modify from './components/Modify/Modify'
 import {cube,cuboid,sphere } from '@jscad/modeling/src/primitives'
 import {vectorText} from '@jscad/modeling/src/text'
 import {useState, useEffect} from 'react';
@@ -10,7 +10,7 @@ import {translateX, translateY, translateZ} from '@jscad/modeling/src/operations
 import {union, subtract, intersect} from '@jscad/modeling/src/operations/booleans'
 import {Renderer} from 'jscad-react';
 import * as React from 'react'
-import Shapes from './components/Shapes';
+import Shapes from './components/Shapes/Shapes';
 function App() {
   return (<div>
     <Env/>

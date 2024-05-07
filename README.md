@@ -11,6 +11,26 @@ To build an interactive 3D renderer using OpenJSCAD with react, to perform the f
 * jscad
 * jscad-react
 
+## File Structure
+``` my-react-app/```
+```├── public/```
+```│   ├── index.html```
+```│   └── favicon.ico```
+```├── src/```
+```│   ├── components/```
+```│  │   ├── Modify/```
+```│   │   │   ├── Modify.css```
+```│   │   │   └── Modify.js```
+```│   │   ├── Shapes/```
+```│   │   │   ├── Shapes.css```
+```│   │   │   └── Shapes.js```
+```│   │   └── ...```
+```│   ├── App.js```
+```│   └── index.js```
+```├── package.json```
+```├── README.md```
+```└── ... ```
+
 ## Deployment Process
 
 Due to most of jscad libraries having dependency resolution errors deployment requires for the need of force install
