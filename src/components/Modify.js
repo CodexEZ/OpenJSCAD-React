@@ -64,7 +64,6 @@ function Modify({x,y,z,rx,ry,rz, tx,ty,tz}){
     //   ty(parseInt(translateY))
     //   tz(parseFloat(translateZ))
     // };
-  
 
   return (
     <div className='form_container'>
